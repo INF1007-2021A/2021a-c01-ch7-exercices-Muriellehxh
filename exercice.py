@@ -14,10 +14,28 @@ def total(a, b, c, masse_volumique):
     print(valeur_volume, masse)
 
 
+
+'écrivez un programme qui trie les lettres à partir du dictionnaire ' \
+'et qui retourne la lettre avec la fréquence la plus haute, en utilisant ' \
+'une fonction lambda (fichier chap 6 RENOMMEZ FICHIER CHAP 6)'
+def tri_lettre(phrase):
+    from ex_chap6 import frequence
+
+    highest_frequency = (lambda max_value: max_value[0])((frequence(phrase)))
+    return highest_frequency
+
+
+
 # TODO: Appelez vos fonctions ici
 
 
 total(2, 5, 7, 0.2)
+phrase = 'I chime in with a havent you people ever heard of closing the goddamn door'
+
+
+
+
+
 
 'CHAPITRE 7'
 print('EXPLICATIONS CHAPITRE 7')
@@ -28,6 +46,7 @@ def f(a, b):
     if b == 1:
         return a
     return a + f(a, b - 1)
+
 
 
 print(f(3, 5))
@@ -109,48 +128,32 @@ def factorielle(n): 2
 'return (n * factorielle(n - 1))'
 
 
-def latin_phrase_to_english(pig_latin_phrase):
-    list_pig_latin_words = pig_latin_phrase.split()
-    print(list_pig_latin_words)
 
+List_lines = ['Benjamin, 12 janvier 1982, Homme'], ['Marie, 27 septembre 1986, Femme']
 
-latin_phrase_to_english('onStr sjncn dwdew')
-
-for word, number in latin_phrase_to_english('onStr sync dwdew'):
-    for letter in word:
-        if letter == 'e':
-            print(word)
+dictionnaire_noms = {}
+length_to_split = [1, 3, 1]
 
 
 
+for ligne in List_lines:
+    liste_personne = ligne[0].split(',')
+    date_naissance = liste_personne[1].split()
+    dictionnaire_ligne = {liste_personne[0]: date_naissance[2]}
+    dictionnaire_noms.update(dictionnaire_ligne)
 
-    for number in vec:
-        if number == min(vec):
-            if number == -1:
-                continue
-            else:
-                indice, minimum = vec[number], number
-                return vec[number], number
-    print(vec[number], number)
+print(dictionnaire_noms)
 
-    dict_valeurs_minimales_noeud = {}
-    second_dict = {}
 
-    for list_noeud in matrice:
+def naissance(nom_de_fichier):
+    my_list = []
 
-        for numb in noeuds_vis_fake:
-            if list_noeud[numb] == -1:
-                continue
-            else:
-                dict_valeurs_minimales_noeud = {matrice.index(list_noeud): list_noeud[numb]}
-                second_dict.update(dict_valeurs_minimales_noeud)
+    dictionnaire_noms = {}
 
-    print(second_dict)
+    with open("anniversaire.txt") as f:
+        for ligne in f:
+            my_list.append(ligne)
+            print(my_list)
 
-    noeud_arriver = min(second_dict, key=second_dict.get)
 
-    # To do: utiliser la fonction noeudMinimalNonVisitesDeNoeud(matrice, noeud, noeuds_vis)
 
-    noeuds_vis_fake.remove(2)
-    noeud_depart, poids_min = noeudMinimalNonVisitesDeNoeud(matrice, noeud_arriver, noeuds_vis_fake)
-    return noeud_depart, noeud_arriver
