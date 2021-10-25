@@ -120,3 +120,37 @@ for word, number in latin_phrase_to_english('onStr sync dwdew'):
     for letter in word:
         if letter == 'e':
             print(word)
+
+
+
+
+    for number in vec:
+        if number == min(vec):
+            if number == -1:
+                continue
+            else:
+                indice, minimum = vec[number], number
+                return vec[number], number
+    print(vec[number], number)
+
+    dict_valeurs_minimales_noeud = {}
+    second_dict = {}
+
+    for list_noeud in matrice:
+
+        for numb in noeuds_vis_fake:
+            if list_noeud[numb] == -1:
+                continue
+            else:
+                dict_valeurs_minimales_noeud = {matrice.index(list_noeud): list_noeud[numb]}
+                second_dict.update(dict_valeurs_minimales_noeud)
+
+    print(second_dict)
+
+    noeud_arriver = min(second_dict, key=second_dict.get)
+
+    # To do: utiliser la fonction noeudMinimalNonVisitesDeNoeud(matrice, noeud, noeuds_vis)
+
+    noeuds_vis_fake.remove(2)
+    noeud_depart, poids_min = noeudMinimalNonVisitesDeNoeud(matrice, noeud_arriver, noeuds_vis_fake)
+    return noeud_depart, noeud_arriver
