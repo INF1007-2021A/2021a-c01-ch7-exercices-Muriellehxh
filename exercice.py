@@ -39,7 +39,7 @@ def draw_tree():
 
     done() # dessin terminé
 
-def draw_branch(branche_len, pen_size, angle ):
+def draw_branch(branche_len, pen_size, angle ):  #BIEN RÉVISER
     # longueur branche réduit
     # largeur réduite
     # angle réduit + en plus
