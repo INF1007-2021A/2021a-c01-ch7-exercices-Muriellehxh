@@ -14,23 +14,26 @@ def total(a, b, c, masse_volumique):
     print(valeur_volume, masse)
 
 
+import ex_chap6
+import sys
 
-'écrivez un programme qui trie les lettres à partir du dictionnaire ' \
-'et qui retourne la lettre avec la fréquence la plus haute, en utilisant ' \
-'une fonction lambda (fichier chap 6 RENOMMEZ FICHIER CHAP 6)'
+sys.path.insert(0, "/Users/muriellemardenli/Desktop/poly/INF1007/2021a-c01-ch7-exercices-Muriellehxh/ex_chap6.py")
+from ex_chap6 import frequence
+
 def tri_lettre(phrase):
-    from ex_chap6 import frequence
-
-    highest_frequency = (lambda max_value: max_value[0])((frequence(phrase)))
-    return highest_frequency
+    return phrase
 
 
 
 # TODO: Appelez vos fonctions ici
 
+if __name__ == '__main__':
 
-total(2, 5, 7, 0.2)
-phrase = 'I chime in with a havent you people ever heard of closing the goddamn door'
+   phrase = 'je suis en train decrire une phrase'
+   letter = total((lambda max_value: max(frequence(phrase), key=frequence(phrase).get))(frequence(phrase)))
+   print(letter)
+
+
 
 
 
