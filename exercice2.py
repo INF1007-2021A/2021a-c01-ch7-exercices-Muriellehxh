@@ -25,7 +25,39 @@ def tri_lettre(phrase):
     return phrase
 
 
+from turtle import *
 
+def draw_tree():
+    setheading(90) # mettre ligne
+    color("green") # color of line
+
+
+    # partie récursive
+
+    draw_branch(70, 7, 35)
+
+
+
+    done() # dessin terminé
+
+def draw_branch(branche_len, pen_size, angle ):  #BIEN RÉVISER
+    # longueur branche réduit
+    # largeur réduite
+    # angle réduit + en plus
+
+    if branche_len > 0:
+        pensize(pen_size)
+        forward(branche_len)
+        right(angle) #ramener branche vers centre
+        draw_branch(branche_len - 10, pen_size - 1, angle - 2)
+
+    # now, on doit aller vers la gauche pour dessiner 1ere branche (reculer)
+
+        left(angle * 2)    # draw tree branch to the left
+        draw_branch(branche_len - 10, pen_size - 1, angle - 2)
+
+        right(angle)  #ramener branche vers milieu
+        backward(branche_len)
 
 
 
@@ -49,16 +81,14 @@ def saisie(type):
     print(f"La {type} n'est pas valide!")
     return saisie(type)
 
-def proportion(chaine, sequence):
-    return chaine.count(sequence) # nb de fois que sequence revient dans chaine
 
-
-def check_dna():
-    chaine = saisie("chaine")
-    sequence = saisie("sequence")
 
 
 # TODO: Appelez vos fonctions ici
+
+
+
+
 
 if __name__ == '__main__':
 
@@ -69,10 +99,10 @@ if __name__ == '__main__':
    print(letter)
 
 
-   print(proportion("actgaaactttagg", "actg"))
+   draw_tree()
 
-   print(f"Il y a le nombre {round(proportion(chaine, sequence) * 100, 2)} % de prop")
 
+   print(valide("agggaatttccc"))
 
 'CHAPITRE 7'
 print('EXPLICATIONS CHAPITRE 7')
