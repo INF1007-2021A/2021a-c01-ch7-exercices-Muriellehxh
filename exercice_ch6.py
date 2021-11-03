@@ -51,7 +51,7 @@ def frequence(sentence: str) -> dict:
     for key in sorted_keys:
         if frequency[key] > 5:
             print(f"Le caractère {key} revient {frequency[key]} fois.")
-
+    print(frequency)
     return frequency
 
 

@@ -15,11 +15,11 @@ def total(a, b, c, masse_volumique):
     print(valeur_volume, masse)
 
 
-import ex_chap6
+import exercice_ch6
 import sys
 
-sys.path.insert(0, "/Users/muriellemardenli/Desktop/poly/INF1007/2021a-c01-ch7-exercices-Muriellehxh/ex_chap6.py")
-from ex_chap6 import frequence
+sys.path.insert(0, "/exercice_ch6.py")
+from exercice_ch6 import frequence
 
 def tri_lettre(phrase):
     return phrase

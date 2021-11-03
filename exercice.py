@@ -15,47 +15,26 @@ def total(a, b, c, masse_volumique):
     print(valeur_volume, masse)
 
 
-import ex_chap6
+import exercice_ch6
 import sys
 
-sys.path.insert(0, "/Users/muriellemardenli/Desktop/poly/INF1007/2021a-c01-ch7-exercices-Muriellehxh/ex_chap6.py")
-from ex_chap6 import frequence
+sys.path.insert(0, "/exercice_ch6.py")
+from exercice_ch6 import frequence
 
 def tri_lettre(phrase):
-    return phrase
+
+    dict_freq = (frequence(phrase))
+
+    list_n = []
+    for n in range(len(dict_freq)):
+        list_n.append(n)
+
+    letter = (lambda max_value: max(max_value)(list_n))
+    return letter
 
 
 
 
-
-
-def valide(sequence):
-
-
-    # OU utiliser expression module (= simplifcation d'expression avec trucs comme '^', \, etc, LOOK UP ON INTERNET)
-
-    # 1) import libraire re (voir en haut)
-    # commence et continue uniquement actg du debut jusqua fin
-    bool(re.match("^[actg]+$", sequence))
-
-
-def saisie(type):
-    value = input(f"{type}: ")
-
-    if valide(value):
-        return value
-    # WE CANT PUT ELSE AFTER WE PUT RETURN IN IF
-
-    print(f"La {type} n'est pas valide!")
-    return saisie(type)
-
-def proportion(chaine, sequence):
-    return chaine.count(sequence) # nb de fois que sequence revient dans chaine
-
-
-def check_dna():
-    chaine = saisie("chaine")
-    sequence = saisie("sequence")
 
 
 # TODO: Appelez vos fonctions ici
@@ -65,13 +44,10 @@ if __name__ == '__main__':
    total(4, 5, 1, 0.1)
 
    phrase = 'je suis en train decrire une phrase'
-   letter = tri_lettre((lambda max_value: max(frequence(phrase), key=frequence(phrase).get))(phrase))
-   print(letter)
+   tri_lettre(phrase)
 
 
-   print(proportion("actgaaactttagg", "actg"))
 
-   print(f"Il y a le nombre {round(proportion(chaine, sequence) * 100, 2)} % de prop")
 
 
 'CHAPITRE 7'
@@ -138,6 +114,7 @@ g = lambda x: x * 2
 multi = g(5)
 print(multi)
 
+
 # Tri d’une liste suivant des règles spécifiques
 noms = ["B De Leener", "J Cohen", "M Guy", "K Lapierre"]
 print(sorted(noms))  # Tri simple sur les chaînes de caractère
@@ -163,34 +140,6 @@ def factorielle(n): 2
 'return 1'
 'else'
 'return (n * factorielle(n - 1))'
-
-
-
-List_lines = ['Benjamin, 12 janvier 1982, Homme'], ['Marie, 27 septembre 1986, Femme']
-
-dictionnaire_noms = {}
-length_to_split = [1, 3, 1]
-
-
-
-for ligne in List_lines:
-    liste_personne = ligne[0].split(',')
-    date_naissance = liste_personne[1].split()
-    dictionnaire_ligne = {liste_personne[0]: date_naissance[2]}
-    dictionnaire_noms.update(dictionnaire_ligne)
-
-print(dictionnaire_noms)
-
-
-def naissance(nom_de_fichier):
-    my_list = []
-
-    dictionnaire_noms = {}
-
-    with open("anniversaire.txt") as f:
-        for ligne in f:
-            my_list.append(ligne)
-            print(my_list)
 
 
 
