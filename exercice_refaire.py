@@ -15,15 +15,13 @@ def total(a, b, c, mv):
     return (V, M)
 
 
-import exercice_ch6
-import sys
+from exercice_ch6 import frequence   # we put a global statement for dict frequency, so that we can use it in a different file
+# OR we couldve put import * to get global thing??
 
-sys.path.insert(0, "/exercice_ch6.py")
-from exercice_ch6 import frequence
-
-def trie(path):
-    pass
+lettre_frequence = (lambda dictionary : max(dictionary, key=dictionary.get))  # get max item of dictionary with dictionary.get
 
 if __name__ == '__main__':
     print(total(2, 4, 7, 0.2))
+
+    print(lettre_frequence(frequence('soy un sentence')))
 
