@@ -23,5 +23,5 @@ lettre_frequence = (lambda dictionary : max(dictionary, key=dictionary.get))  # 
 if __name__ == '__main__':
     print(total(2, 4, 7, 0.2))
 
-    print(lettre_frequence(frequence('soy un sentence')))
+    print(lettre_frequence(frequence('soy une phrase')))
 
