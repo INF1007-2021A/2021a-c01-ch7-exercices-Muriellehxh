@@ -64,7 +64,6 @@ def f(a, b):
 
 print(f(3, 5))
 
-'***ask teacher****'
 
 'Valeurs par défaut'
 
@@ -90,6 +89,7 @@ def ma_function(x=None):
 ma_function('test')
 ma_function()
 
+
 'Fonction rappel'
 
 
@@ -107,12 +107,13 @@ def operation(x, y, f):
 def f(x):
     return x * 2
 
-
 # est équivalent à
 
 g = lambda x: x * 2
 multi = g(5)
 print(multi)
+
+' Lambda sert à simplifier pour pas mettre de fonction'
 
 
 # Tri d’une liste suivant des règles spécifiques
@@ -142,4 +143,38 @@ def factorielle(n): 2
 'return (n * factorielle(n - 1))'
 
 
+# TODO : Vidéo chap 7
 
+' QUAND ON RENCONTRE RETURN, fonction sarrete'
+
+' EX: Fonction de rappel' \
+
+
+def f(a, b):
+    return a+b
+
+def operation(x, y, f):
+    return x + y + f
+
+original_f = f(2,3)
+print(operation(4, 5, original_f))
+
+
+' Variables locales et globales '
+
+# glob = ext , loc = int fonction
+# fonction locals(variable) to see if variable is local or global
+
+# 4 espaces:
+  # interne = toutes fonctions de python
+
+
+' Fonction récursive '
+
+def getFactorial (n):
+    if n<2:
+        return 1
+    else:
+        return n * getFactorial(n-1)
+
+print(getFactorial(4))
