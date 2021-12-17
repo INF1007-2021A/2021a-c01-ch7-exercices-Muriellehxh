@@ -20,7 +20,8 @@ def compute_volume_and_mass(a=2, b=4, c=6, masse_vol=10):
 def valide(saisie):
 
     if len(saisie) != 0:
-        return set(saisie).issubset("atgc")
+        if set(saisie).issubset('atgc'):
+           return True
 
     return False
 
