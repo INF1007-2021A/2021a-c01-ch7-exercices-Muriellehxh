@@ -7,23 +7,7 @@ import math
 import re
 
 # TODO: Définissez vos fonction ici
-
-
-def total(a, b, c, masse_volumique):
-    valeur_volume = 4 / 3 * math.pi * a * b * c
-    masse = valeur_volume * masse_volumique
-    print(valeur_volume, masse)
-
-
-import exercice_ch6
-import sys
-
-sys.path.insert(0, "/exercice_ch6.py")
-from exercice_ch6 import frequence
-
-def tri_lettre(phrase):
-    return phrase
-
+import turtle
 
 from turtle import *
 
@@ -44,6 +28,8 @@ def draw_branch(branche_len, pen_size, angle ):  #BIEN RÉVISER
     # longueur branche réduit
     # largeur réduite
     # angle réduit + en plus
+
+    speed(1)
 
     if branche_len > 0:
         pensize(pen_size)
@@ -92,17 +78,12 @@ def saisie(type):
 
 if __name__ == '__main__':
 
-   total(4, 5, 1, 0.1)
-
-   phrase = 'je suis en train decrire une phrase'
-   letter = tri_lettre((lambda max_value: max(frequence(phrase), key=frequence(phrase).get))(phrase))
-   print(letter)
-
-
-   # draw_tree()
+   draw_tree()
 
 
    print(valide("agggaatttccc"))
+
+
 
 'CHAPITRE 7'
 print('EXPLICATIONS CHAPITRE 7')
@@ -123,26 +104,8 @@ print(f(3, 5))
 'Valeurs par défaut'
 
 
-def tableMulti(base, debut, fin):
-    print('Fragment de la table de multiplication par', base, ':')
-    n = debut
-    while n <= fin:
-        print(n, 'x', base, '=', n * base)
-        n = n + 1
 
 
-tableMulti(12, 5, 15)
-
-
-def ma_function(x=None):
-    if x:
-        print(x)
-    else:
-        print('rien')
-
-
-ma_function('test')
-ma_function()
 
 'Fonction rappel'
 
@@ -183,33 +146,18 @@ if __name__ == '__main__':
     x = ma_fonction(0, z=2, y=4)
     print(x)
 
+
+print('\n Révision chap 7')
+
+
 'Fonction récursives'
 
 
-def factorielle(n): 2
-
-
-'if n <= 1'
-'return 1'
-'else'
-'return (n * factorielle(n - 1))'
-
-
-
-List_lines = ['Benjamin, 12 janvier 1982, Homme'], ['Marie, 27 septembre 1986, Femme']
-
-dictionnaire_noms = {}
-length_to_split = [1, 3, 1]
-
-
-
-for ligne in List_lines:
-    liste_personne = ligne[0].split(',')
-    date_naissance = liste_personne[1].split()
-    dictionnaire_ligne = {liste_personne[0]: date_naissance[2]}
-    dictionnaire_noms.update(dictionnaire_ligne)
-
-print(dictionnaire_noms)
+def factorielle(n):
+    if n < 2:
+        return 1
+    else:
+        return n * factorielle(n-1)
 
 
 def naissance(nom_de_fichier):
@@ -233,3 +181,43 @@ print(f(2))
 # OR
 
 print(quadratic_formula(1, 4, 5)(2))
+
+print(factorielle(4))
+
+
+' Turtle recursive functions '
+import turtle
+stacy = turtle.Turtle()
+stacy.goto(0, -100)
+stacy.speed(1)
+
+# def function
+def draw_fractal( length, depth): # depth = how many lines it gets to
+    stacy.forward(length)
+    if depth > 1: # tell it to stop at one point
+        stacy.backward(length/2) # cause she needs to go back halfway to cnter to draw other line
+        stacy.left(90)
+        # no drawinf new line yet!! we wait till we use recursion, so when we re-use little bit!!
+
+        # stacy.forward(length/2.1)  <= instead we'll put recursive function so she repeats herself
+        draw_fractal(length/2.1, depth - 1)  # length - 1 cause it'll never be less than one
+
+        stacy.right(180)
+
+        # stacy.forward(length/2.1)
+        draw_fractal(length / 2.1, depth - 1)
+
+        stacy.right(90)
+        stacy.forward(length/2)
+
+    stacy.right(180)
+    stacy.forward(length)
+
+
+# run function
+# draw_fractal(200, 6)
+# stacy.right(180)
+# draw_fractal(200, 6)
+
+#exit
+#  turtle.exitonclick()

@@ -24,30 +24,22 @@ def best_grades(student_grades: dict) -> dict:
     pass
 
 
+
+
 def frequence(sentence: str) -> dict:
     # TODO: Afficher les lettres les plus fréquentes
     #       Retourner le tableau de lettres
 
-    sentence_split = sentence.split()
-    letter_list = []
-    for word in sentence_split:
-        for letter in word:
-            letter_list.append(letter)
+    frequency = dict()
+    for letter in sentence:
+        frequency[letter] = sentence.count(letter)
 
-    dict_letters = {}
-    for letter in letter_list:
-        dict_letters[letter] = letter_list.count(letter)
+    sorted_keys = sorted(frequency, key=frequency.__getitem__, reverse=True)
+    for key in sorted_keys:
+        if frequency[key] > 5:
+            print(f"Le caractère {key} revient {frequency[key]} fois.")
 
-    sorted_dict = dict(sorted(dict_letters.items(), key= lambda letter : letter[1], reverse=True))
-
-    dict_values_above = {}
-    for letter in sorted_dict:
-        if sorted_dict[letter] > 5:
-            dict_values_above[letter] = sorted_dict[letter]
-            print(f"Le caractere {letter} revient {dict_letters[letter]} fois")
-
-    return dict_values_above
-
+    return frequency
 
 def get_recipes():
     # TODO: Demander le nom d'une recette, puis ses ingredients et enregistrer dans une structure de données
