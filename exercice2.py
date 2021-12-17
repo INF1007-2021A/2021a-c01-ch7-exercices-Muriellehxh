@@ -99,7 +99,7 @@ if __name__ == '__main__':
    print(letter)
 
 
-   draw_tree()
+   # draw_tree()
 
 
    print(valide("agggaatttccc"))
@@ -222,5 +222,14 @@ def naissance(nom_de_fichier):
             my_list.append(ligne)
             print(my_list)
 
+' LAMBDA FUNCTION INSIDE ANOTHER FUNCTION '
 
+def quadratic_formula(a, b, c):
+    return lambda x: a*x**2 + b*x + c
 
+f = (quadratic_formula(1, 4, 5))
+print(f(2))
+
+# OR
+
+print(quadratic_formula(1, 4, 5)(2))

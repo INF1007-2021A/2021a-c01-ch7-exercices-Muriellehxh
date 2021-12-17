@@ -22,7 +22,7 @@ sys.path.insert(0, "/exercice_ch6.py")
 from exercice_ch6 import frequence
 
 def trie(path):
-
+    pass
 
 if __name__ == '__main__':
     print(total(2, 4, 7, 0.2))

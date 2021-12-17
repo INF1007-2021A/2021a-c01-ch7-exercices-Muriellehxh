@@ -1,93 +1,75 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+
+def est_bissextile(annee):
+    # On suppose que annee > 0
+    pass
+
 def order(values: list = None) -> list:
-    if values is None:
-        # TODO: Demander les valeurs ici
-        values = []
-        while len(values) < 10:
-            values.append(input("Please enter a value\n"))
-
-    num_values = [float(value) for value in values if value.isdigit()]
-    str_values = [value for value in values if not value.isdigit()]
-
-    return sorted(num_values) + sorted(str_values)
+    pass
 
 
 def anagrams(words: list = None) -> bool:
-    if words is None:
-        # TODO: Demander les mots ici
-        words = []
-        while len(words) < 2:
-            words.append(input("Please enter string\n"))
 
-    return sorted(words[0]) == sorted(words[1])
-
+   pass
 
 def contains_doubles(items: list) -> bool:
 
-    return len(set(items)) != len(items)
+    pass
 
 
 def best_grades(student_grades: dict) -> dict:
     # TODO: Retourner un dictionnaire contenant le nom de l'étudiant ayant la meilleure moyenne ainsi que sa moyenne
-    best_student = dict()
-    for key, value in student_grades.items():
-        average = sum(value)/len(value)
-
-        if len(best_student) == 0 or list(best_student.values())[0] < average:
-            best_student = {key: average}
-
-    return best_student
-
+    pass
 
 
 def frequence(sentence: str) -> dict:
     # TODO: Afficher les lettres les plus fréquentes
     #       Retourner le tableau de lettres
 
-    frequency = dict()
-    for letter in sentence:
-        frequency[letter] = sentence.count(letter)
+    sentence_split = sentence.split()
+    letter_list = []
+    for word in sentence_split:
+        for letter in word:
+            letter_list.append(letter)
 
-    sorted_keys = sorted(frequency, key=frequency.__getitem__, reverse=True)
-    for key in sorted_keys:
-        if frequency[key] > 5:
-            print(f"Le caractère {key} revient {frequency[key]} fois.")
-    print(frequency)
-    return frequency
+    dict_letters = {}
+    for letter in letter_list:
+        dict_letters[letter] = letter_list.count(letter)
+
+    dict_letters = dict(sorted(dict_letters.items(), key=lambda x: x[1], reverse=True))
+
+    dict_values_above = {}
+    for letter in dict_letters:
+        if dict_letters[letter] > 5:
+            dict_values_above[letter] = dict_letters[letter]
+            print(f"Le caractere {letter} revient {dict_letters[letter]} fois")
+
+    return dict_values_above
 
 
 def get_recipes():
-    # TODO: Demander le nom d'une recette, puis ses ingrédients et enregistrer dans une structure de données
-    name = input("Quel est le nom de votre recette?\n")
-    ingredient = input("Entrer la liste d'ingrédients? Séparer les ingrédiants par une ,\n").split(",")
-
-    return {name: ingredient}
+    # TODO: Demander le nom d'une recette, puis ses ingredients et enregistrer dans une structure de données
+    pass
 
 
 def print_recipe(ingredients) -> None:
     # TODO: Demander le nom d'une recette, puis l'afficher si elle existe
-    name = input("Quel est le nom de votre recette?\n")
-
-    if name in ingredients:
-        print(ingredients[name])
-    else:
-        print("Cette recette n'est pas dans le livre!")
-        print_recipe(ingredients)
-
+    pass
 
 
 def main() -> None:
     print(f"On essaie d'ordonner les valeurs...")
-    print(order())
+    order()
 
     print(f"On vérifie les anagrammes...")
-    print(anagrams())
+    anagrams()
 
     my_list = [3, 3, 5, 6, 1, 1]
     print(f"Ma liste contient-elle des doublons? {contains_doubles(my_list)}")
 
-    grades = {"Bob": [90, 65, 20], "Alice": [85, 75, 83]}
-    best_student = best_grades(grades)
-    print(f"{list(best_student.keys())[0]} a la meilleure moyenne: {list(best_student.values())[0]}")
+
 
     sentence = "bonjour, je suis une phrase. je suis compose de beaucoup de lettre. oui oui"
     frequence(sentence)
