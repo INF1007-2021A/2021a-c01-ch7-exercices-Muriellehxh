@@ -34,7 +34,7 @@ def draw_branch(branche_len, pen_size, angle ):  #BIEN RÉVISER
     if branche_len > 0:
         pensize(pen_size)
         forward(branche_len)
-        right(angle) #ramener branche vers centre
+        right(angle) #tourner un peu vers droite pour dessiner à droite
         draw_branch(branche_len - 10, pen_size - 1, angle - 2)
 
     # now, on doit aller vers la gauche pour dessiner 1ere branche (reculer)
@@ -78,7 +78,7 @@ def saisie(type):
 
 if __name__ == '__main__':
 
-   draw_tree()
+   # draw_tree()
 
 
    print(valide("agggaatttccc"))
